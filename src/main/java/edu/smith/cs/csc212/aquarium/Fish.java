@@ -10,12 +10,16 @@ public class Fish {
 	int x;
 	int y;
 	boolean isLittle;
+	int destX;
+	int destY;
 
 	public Fish(Color c, int startX, int startY, boolean isLittle) {
 		this.color = c;
 		this.x = startX;
 		this.y = startY;
 		this.isLittle = isLittle;
+		this.destX = 500;
+		this.destY = 500;
 	}
 	public void draw(Graphics2D g){
 		if(this.isLittle) {
