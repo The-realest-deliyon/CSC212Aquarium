@@ -43,13 +43,17 @@ public class Aquarium extends GFX {
 
 	int fish1X = getWidth() + 100;
 	int fish2X = getWidth() + 300;
+	Fish nemo = new Fish(Color.red, 250,250, true);
+	Fish dory = new Fish(Color.cyan, 100, 100, false);
 
 	@Override
 	public void draw(Graphics2D g) {
 		// Draw the "ocean" background.
 		g.setColor(Color.blue);
 		g.fillRect(0, 0, getWidth(), getHeight());
-
+		
+		nemo.draw(g);
+		dory.draw(g);
 		// Draw the fish!
 		DrawFish.facingLeft(g, Color.yellow, fish1X, 200);
 		// Draw the confused fish!
