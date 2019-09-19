@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import me.jjfoley.gfx.GFX;
+import me.jjfoley.gfx.IntPoint;
 
 /**
  * Aquarium is a graphical "application" that uses some code I built and have
@@ -45,14 +46,22 @@ public class Aquarium extends GFX {
 	int fish2X = getWidth() + 300;
 	Fish nemo = new Fish(Color.red, 250,250, true);
 	Fish dory = new Fish(Color.cyan, 100, 100, false);
-	Destination point = new Destination(250, 250, Color.green);
+	
+	Destination Bat = new Destination(250, 250, Color.yellow);
 	@Override
 	public void draw(Graphics2D g) {
 		// Draw the "ocean" background.
 		g.setColor(Color.blue);
 		g.fillRect(0, 0, getWidth(), getHeight());
 		
-		point.draw(g);
+		Bat.draw(g);
+		
+		IntPoint maybeClick = this.processClick();
+		if (maybeClick != null) {
+			System.out.println(maybeClick);
+			Bat.destX = maybeClick.x;
+			Bat.destY = maybeClick.y;
+		}
 		
 		nemo.draw(g);
 		dory.draw(g);
