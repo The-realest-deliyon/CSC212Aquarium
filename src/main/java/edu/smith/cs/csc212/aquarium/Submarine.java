@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 
-public class Destination {
+public class Submarine {
 	int x;
 	int y;
 	Color color;
@@ -14,7 +14,7 @@ public class Destination {
 	int speedY;
 	boolean moving;
 	
-	Destination(int startx, int starty, Color startColor){
+	Submarine(int startx, int starty, Color startColor){
 		this.x = startx;
 		this.y = starty;
 		this.color = startColor;

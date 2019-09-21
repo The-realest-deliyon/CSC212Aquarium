@@ -37,9 +37,10 @@ public class Aquarium extends GFX {
 	 * This is a constructor, code that runs when we make a new Aquarium.
 	 */
 	public Aquarium() {
-		// Here we ask GFX to make our window of size WIDTH and HEIGHT.
-		// Don't change this here, edit the variables instead.
-		super(WIDTH, HEIGHT);
+		super(WIDTH,HEIGHT);
+		for (int i=0; i<waves.length; i++) {
+			waves[i] = new WavePool();
+		}
 	}
 
 	int fish1X = getWidth() + 100;
@@ -47,7 +48,10 @@ public class Aquarium extends GFX {
 	Fish nemo = new Fish(Color.red, 250,250, true);
 	Fish dory = new Fish(Color.cyan, 100, 100, false);
 	
-	Destination Bat = new Destination(250, 250, Color.yellow);
+	Submarine Bat = new Submarine(250, 250, Color.yellow);
+	WavePool crush = new WavePool();
+	WavePool[] waves = new WavePool[10];
+
 	@Override
 	public void draw(Graphics2D g) {
 		// Draw the "ocean" background.
@@ -55,7 +59,11 @@ public class Aquarium extends GFX {
 		g.fillRect(0, 0, getWidth(), getHeight());
 		
 		Bat.draw(g);
+		crush.draw(g);
 		
+		for (WavePool w: this.waves) {
+			w.draw(g);
+		}
 		IntPoint maybeClick = this.processClick();
 		if (maybeClick != null) {
 			System.out.println(maybeClick);

@@ -2,6 +2,7 @@ package edu.smith.cs.csc212.aquarium;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.util.Random;
 
 public class Fish {
 	//Every fish has a color 
@@ -12,6 +13,10 @@ public class Fish {
 	boolean isLittle;
 	int destX;
 	int destY;
+	int speedX;
+	int speedY;
+	boolean moving;
+	Random rand = new Random(); 
 
 	public Fish(Color c, int startX, int startY, boolean isLittle) {
 		this.color = c;
@@ -32,6 +37,11 @@ public class Fish {
 	public void swim() {
 		this.x += 1;
 		this.y += 1;
+	}
+	
+	public void destination() {
+		moving = true;
+		if(this.x + )
 	}
 }
 
